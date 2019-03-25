@@ -204,5 +204,25 @@ def team_names
   result
 end
 
+def player_numbers( team_name)
+  result = []
+  game_hash.each do |location, team_data|
+puts game_hash[location][:team_name]
+    if game_hash[location][:team_name]== team_name
+      team_data.each do |team_attribute, team_data|
+        if team_attribute==:players
+         team_data.each do | player, player_data |
+           player_data.each do | player_attribute, player_att_data|
+             if player_attribute==:number
+               result << player_att_data
+             end
+           end
+         end
+       end
+      end
+    end
+  end
+  result
+end
 
 
