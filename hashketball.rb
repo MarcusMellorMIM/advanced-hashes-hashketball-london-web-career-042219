@@ -269,3 +269,32 @@ def big_shoe_rebounds
   game_hash[result_location][:players][result_player][:rebounds]
 
 end
+
+def most_points_scored
+  current_points = 0
+  result_location=""
+  result_team=""
+  result_player=""
+  game_hash.each do |location, team_data|
+      team_data.each do |attribute, data|
+      if attribute==:players
+        data.each do |players_name, data_item|
+
+            data_item.each do | element, element_result |
+              if element==:points
+                  if element_result>current_points
+                      current_points=element_result
+                      result_location=location
+                      result_player=players_name
+                  end
+              end
+            end    
+
+        end
+      end
+    end
+  end
+
+  result_player
+
+end
