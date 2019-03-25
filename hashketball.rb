@@ -370,7 +370,6 @@ def player_with_biggest_steals
   max_name
 end
 
-def long_name_steals_a_ton 
-
+def long_name_steals_a_ton? 
   player_with_longest_name==player_with_biggest_steals
 end
