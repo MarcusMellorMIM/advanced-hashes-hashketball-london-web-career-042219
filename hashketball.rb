@@ -298,3 +298,32 @@ def most_points_scored
   result_player
 
 end
+
+def most_points_scored
+  current_points = 0
+  max_points = 0
+  max_team = ""
+  game_hash.each do |location, team_data|
+      current_points=0
+      current_team=game_hash[location][:team_name]
+      team_data.each do |attribute, data|
+       if attribute==:players
+         data.each do |players_name, data_item|
+            data_item.each do | element, element_result |
+              if element==:points
+                current_points+=element_result
+              end
+            end
+          end    
+        end
+      end
+      if current_points > max_points
+        max_team=current_team
+        max_points=current_points
+      end
+
+    end
+  
+  max_team
+
+end
