@@ -346,3 +346,30 @@ def player_with_longest_name
   end
   max_name
 end
+
+def player_with_biggest_steals
+  max_steals = 0
+  max_name = ""
+  game_hash.each do |location, team_data|
+      team_data.each do |attribute, data|
+        if attribute==:players
+          data.each do |players_name, data_item|
+            data_item.each do | element, element_value |  
+              if element=:steals
+                if element_value>max_steals
+                  max_name=players_name
+                  max_steals=element_value
+                end
+              end        
+          end
+        end
+      end
+  end
+  max_name
+end
+
+def long_name_steals_a_ton
+  
+  player_with_longest_name==player_with_biggest_steals
+  
+end
