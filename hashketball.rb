@@ -241,3 +241,31 @@ def player_stats( player)
   result
 end
 
+def big_shoe_rebounds
+  current_shoe = 0
+  result_location=""
+  result_team=""
+  result_player=""
+  game_hash.each do |location, team_data|
+      team_data.each do |attribute, data|
+      if attribute==:players
+        data.each do |players_name, data_item|
+
+            data_item.each do | element, element_result |
+              if element==:shoe
+                  if element_result>current_shoe
+                      current_shoe=element_result
+                      result_location=location
+                      result_player=players_name
+                  end
+              end
+            end    
+
+        end
+      end
+    end
+  end
+
+  game_hash[result_location][:players][result_player][:rebounds]
+
+end
