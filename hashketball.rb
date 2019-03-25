@@ -300,7 +300,7 @@ def most_points_scored
 end
 
 
-def most_points_scored
+def winning_team
   current_points = 0
   max_points = 0
   max_team = ""
