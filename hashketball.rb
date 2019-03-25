@@ -299,6 +299,7 @@ def most_points_scored
 
 end
 
+
 def most_points_scored
   current_points = 0
   max_points = 0
